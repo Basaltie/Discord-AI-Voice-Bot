@@ -20,6 +20,9 @@ promptfile.close()
 
 
 messages = []
+# Is the "systemrole" variable redundant?
+# Yes, and no. I like having it as it creates a logical link for me between the prompt and the Chat GPT API.
+# So I am keeping it in for now although it may be changed later.
 systemrole = prompt
 messages.append({"role": "system", "content": systemrole})
 p = pyaudio.PyAudio()
