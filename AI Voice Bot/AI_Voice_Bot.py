@@ -2,6 +2,7 @@ from email import message
 from pyexpat import model
 from urllib import response
 import discord
+import os
 from discord.ext import commands
 from discord import FFmpegPCMAudio
 import openai
@@ -13,9 +14,13 @@ import keyboard
 # Replace keys with whatever file holds your api keys
 import keys
 
+promptfile = open("prompt.txt", "rt")
+prompt = promptfile.read()
+promptfile.close()
+
 
 messages = []
-systemrole = '''You are Arthur Birling from the 1946 play An Inspector Calls. The play is set in 1912. The events of the play have not yet taken place for you. You have a wife named Sybil and two childen. A son named Eric and a daughter named Shiela.'''
+systemrole = prompt
 messages.append({"role": "system", "content": systemrole})
 p = pyaudio.PyAudio()
 CHUNK = 1024
